@@ -25,30 +25,41 @@ class Player(object):
 class Inventory(object):
 
     def __init__(self):
+
         inventory = []
 
-    def add_item(self):
-    if len(inventory) == 3:
-        print("Inventory Full!")
-        print("Would you like to remove an item?")
-        choice = input("Y/N ")
-        if choice is "Y" or "y":
-            print(inventory)
+        def remove_item(self):
             dump = input("What item would you like to remove? ")
             inventory.remove(dump)
-            print(f"It works! {inventory}")
+            print(f"Item removed {inventory}")
+            if len(inventory) != 3:
+                choice = input("Would you like to remove another item? Y/N ")
+                if choice == "Y" or "y":
+                    remove_item()
+                else:
+                    pass
 
-        else:
-            pass
+        def add_item(self):
+            if len(inventory) == 3:
+                print("Inventory Full!")
+                print("Would you like to remove an item?")
+                choice = input("Y/N ")
+                if choice == "Y" or "y":
+                    print(inventory)
+                    remove_item()
+                else:
+                    pass
 
-    else:
-        item = input("What item will you add? ")
-        inventory.append(item)
-        print(inventory)
-        add_item()
-
-    def remove_item(self):
-        pass
+            else:
+                item = input("What item will you add? ")
+                inventory.append(item)
+                print(inventory)
+                if len(inventory) != 3:
+                    choice = input("Would you like to add another item? Y/N ")
+                    if choice == "Y" or "y":
+                        add_item()
+                    else:
+                        pass
 
 
 class Scene(object):
