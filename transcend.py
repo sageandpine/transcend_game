@@ -138,7 +138,17 @@ class Map(object):
         pass
 
     def opening_scene(self):
-        pass
+        print("""This is the opening scene. You have been asleep and you wake to the sun rising....the sunlight through the window has a dreamlike quality.
+              It makes you want to go back to sleep."""
+        choice = input("/nWhat do you do? /nStay Awake/Back to Bed")
+        if choice == "Stay Awake" or "stay awake":
+              next_scene(WakeOne)
+        elif choice == "Back to Bed" or "back to bed":
+              next_scene(DreamOne)
+        else:
+              print("I'm sorry, I am a simple input device. Please choose from given options")
+              opening_scene()
+              
 
 a_map = Map('start_room')
 a_game = Engine(a_map)
