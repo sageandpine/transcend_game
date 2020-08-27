@@ -25,7 +25,7 @@ class Player(object):
 class Inventory(object):
 
     def __init__(self):
-
+        
         inventory = []
 
         def remove_item(self):
@@ -88,7 +88,25 @@ class Resolve(Scene):
 class Start_Room(Scene):
 
     def enter(self):
-        pass
+        print(dedent("""
+              This is the opening scene. You have been asleep and you wake
+              to the sun rising....the sunlight through the window has a
+              dreamlike quality. It makes you want to go back to
+              sleep.
+              """))
+
+        choice = input("/nWhat do you do? /nStay Awake/Back to Bed")
+        if choice == "Stay Awake" or "stay awake":
+              next_scene(WakeOne)
+
+        elif choice == "Back to Bed" or "back to bed":
+              next_scene(DreamOne)
+
+        else:
+              print("""
+                    I'm sorry, I am a simple input device. Please
+                    choose from given options""")
+              opening_scene()
 
 
 
@@ -129,25 +147,28 @@ class Reincarnate(Scene):
 
 
 class Map(object):
-
+    scenes = {
+        'start_room': StartRoom(),
+        'wake_one': WakeOne(),
+        'wake_two': WakeTwo(),
+        'wake_three': WakeThree(),
+        'dream_one': DreamOne(),
+        'dream_two': DreamTwo(),
+        'dream_three': DreamThree(),
+        'reincarnate': Reincarnate(),
+        'resolve': Resolve(),
+        'dissolve': Dissolve()
+    }
 
     def __init__(self, start_scene):
-        pass
+        self.start_scene = start_scene    
 
     def next_scene(self, scene_name):
-        pass
+        val = Map.scenes.get(scene_name)
+        return val
 
     def opening_scene(self):
-        print("""This is the opening scene. You have been asleep and you wake to the sun rising....the sunlight through the window has a dreamlike quality.
-              It makes you want to go back to sleep."""
-        choice = input("/nWhat do you do? /nStay Awake/Back to Bed")
-        if choice == "Stay Awake" or "stay awake":
-              next_scene(WakeOne)
-        elif choice == "Back to Bed" or "back to bed":
-              next_scene(DreamOne)
-        else:
-              print("I'm sorry, I am a simple input device. Please choose from given options")
-              opening_scene()
+        return self.next_scene(self.start_scene)
               
 
 a_map = Map('start_room')
