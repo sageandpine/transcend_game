@@ -1,4 +1,5 @@
 
+
 from sys import exit
 
 inventory = []
@@ -17,11 +18,11 @@ def rmv_item():
 
     choice = input(">  ")
         
-    if "Y" in choice and len(inventory) != 0:
+    if "Y" in choice or "y" in choice and len(inventory) != 0:
         rmv_item()
 
     
-    elif "Y" in choice and len(inventory) == 0:
+    elif "Y" in choice or "y" in choice and len(inventory) == 0:
         print("Inventory empty!")
         add_item()        
 
@@ -35,19 +36,19 @@ def add_item():
     print("Would you like to add an item? Y/N")
 
     choice = input(">  ")
-    if "Y" in choice and len(inventory) == 3:
+    if "Y" in choice or "y" in choice and len(inventory) == 3:
         print("You can't do that! Inventory full!")
         print("Would you like to remove an item from inventory? Y/N")
 
         choice = input("> ")
-        if "Y" in choice:
+        if "Y" in choice or "y" in choice:
             rmv_item()
 
         else:
             print("Let's get back to the game!")
             exit()
             
-    elif "Y" in choice and len(inventory) != 3:
+    elif "Y" in choice or "y" in choice and len(inventory) != 3:
         print("What item would you like to add? ")
     
         item = input("> ")
