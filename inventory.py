@@ -18,11 +18,11 @@ def rmv_item():
 
     choice = input(">  ")
         
-    if "Y" in choice or "y" in choice and len(inventory) != 0:
+    if "Y" in choice and len(inventory) != 0 or "y" in choice and len(inventory) != 0:
         rmv_item()
 
     
-    elif "Y" in choice or "y" in choice and len(inventory) == 0:
+    elif "Y" in choice and len(inventory) == 0 or "y" in choice and len(inventory) == 0:
         print("Inventory empty!")
         add_item()        
 
