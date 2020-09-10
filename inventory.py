@@ -36,7 +36,16 @@ def add_item():
     print("Would you like to add an item? Y/N")
 
     choice = input(">  ")
-    if "Y" in choice or "y" in choice and len(inventory) == 3:
+    if "Y" in choice and len(inventory) != 3 or "y" in choice and len(inventory) != 3:
+        print("What item would you like to add? ")
+    
+        item = input("> ")
+
+        inventory.append(item)
+        print(f"You've added {item} to inventory!")
+        add_item()
+        
+    elif "Y" in choice and len(inventory) == 3 or "y" in choice and len(inventory) == 3:
         print("You can't do that! Inventory full!")
         print("Would you like to remove an item from inventory? Y/N")
 
@@ -48,17 +57,11 @@ def add_item():
             print("Let's get back to the game!")
             exit()
             
-    elif "Y" in choice or "y" in choice and len(inventory) != 3:
-        print("What item would you like to add? ")
-    
-        item = input("> ")
 
-        inventory.append(item)
-        print(f"You've added {item} to inventory!")
-        add_item()
                     
     else:
         print("Let's get back to the game!")
         exit()
 
 add_item()
+
