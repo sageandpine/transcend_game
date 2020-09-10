@@ -1,1 +1,3 @@
-testes 123?
+After using https://code.tutsplus.com/tutorials/how-to-collaborate-on-github--net-34267 I have reached step 5 and made changes to the test.txt file. This, if it works, means we will have the workflow we figured out today. Not long ago, this all was moonspeak lol. 
+
+Good Times 9/10/2020 13:45.
