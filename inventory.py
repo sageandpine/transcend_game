@@ -1,8 +1,10 @@
-
-
 from sys import exit
-
-inventory = []
+###
+fleshpack=["item1", "item2", "item3", "item4", "item5"]
+spiritpack=["item1", "item2", "item3", "item4", "item5"]
+#added a list for fleshpack and spiritpack with 
+###
+inventory = [fleshpack, spiritpack]
 
 # remove item function
 def rmv_item():
@@ -65,3 +67,5 @@ def add_item():
 
 add_item()
 
+fleshpack=[item1, item2, item3, item4, item5]
+spiritpack=[item1, item2, item3, item4, item5]
